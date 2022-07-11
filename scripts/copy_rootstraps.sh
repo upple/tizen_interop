@@ -20,14 +20,14 @@ fi
 OUTDIR=$SCRIPT_DIR/../rootstraps
 rm -fr $OUTDIR
 
-VERSIONS="4.0 5.0 5.5 6.0"
+VERSIONS="4.0 5.0 5.5 6.0 6.5"
 for v in $VERSIONS; do
     rootstrap=$TIZEN_SDK/platforms/tizen-$v/iot-headed/rootstraps/iot-headed-$v-device.core
     if [ ! -d $rootstrap ]; then
         echo "No installed rootstrap: IOT-Headed-$v-NativeAppDevelopment-CLI"
         exit 1
     fi
-    mkdir -p $OUTDIR/$v    
+    mkdir -p $OUTDIR/$v
     cp -fr $rootstrap/usr $OUTDIR/$v
 done
 
